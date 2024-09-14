@@ -11,6 +11,8 @@ The dataset used in this lab is collected by the NYC Taxi and Limousine Commissi
 3.  Import text data into Cloud SQL
 4.  Check the data for integrity
 
+<br>
+<br>
 
 ## STEP 1 : Create environment variables for the project ID and the storage bucket.
 Code 
@@ -21,6 +23,8 @@ export BUCKET=${PROJECT_ID}-ml
 
 This is will save config like project id and bucket name of current project so that we can use it in our code
 
+<br>
+<br>
 
 ## STEP 2. Create a Cloud SQL instance
 
@@ -154,7 +158,8 @@ exit mysql interactive console
 exit
 ```
 
-
+<br>
+<br>
 
 ## STEP 3.  Add data to Cloud SQL 
 
@@ -208,7 +213,8 @@ LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (vendor_id,pickup_datetime,dropoff_datetime,passenger_count,trip_distance,rate_code,store_and_fwd_flag,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,imp_surcharge,total_amount,pickup_location_id,dropoff_location_id);
 ```
-
+<br>
+<br>
 ## STEP 4 : Checking for data integrity
 
 Query the trips table for unique pickup location regions:
