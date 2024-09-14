@@ -106,11 +106,11 @@ owners.
 Reading history-file /home/salmanshaikh/.mysql_history
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 ```
+We will exceute following command in sql command line 
 
 create the schema for the trips
 
 ```sql
-
 create database if not exists bts;
 use bts;
 
@@ -386,7 +386,9 @@ Result
 
 ```
 
-Let's start by digging into the trip_distance column. Enter the following query into the console:
+Let's start by digging into the trip_distance column. 
+
+Running the following query into the console:
 
 ```sql
 select
@@ -410,7 +412,7 @@ Result
 One would expect the trip distance to be greater than 0 and less than, say 1000 miles. The maximum trip distance returned of 85 miles seems reasonable but the minimum trip distance of 0 seems buggy.
 
 
-How many trips in the dataset have a trip distance of 0?
+*How many trips in the dataset have a trip distance of 0?*
 
 ```sql
 select count(*) from trips where trip_distance = 0;
@@ -430,7 +432,6 @@ There are 155 such trips in the database. These trips warrant further exploratio
 
 
 ```sql
-
 select count(*) from trips where fare_amount < 0;
 ```
 
@@ -444,7 +445,7 @@ select count(*) from trips where fare_amount < 0;
 
 ```
 
-There should be 14 such trips returned. Again, these trips warrant further exploration. There may be a reasonable explanation for why the fares take on negative numbers. However, it's up to the data engineer to ensure there are no bugs in the data pipeline that would cause such a result.
+There should be 14 such trips returned. Again, these trips warrant further exploration. There may be a reasonable explanation for why the fares take on negative numbers.
 
 
 Finally, let's investigate the payment_type column.
@@ -457,9 +458,6 @@ from
 group by
   payment_type;
 ```
-
-
-
 
 The results of the query indicate that there are four different payment types, with:
 ```SQL
