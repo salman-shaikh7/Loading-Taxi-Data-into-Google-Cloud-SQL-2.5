@@ -443,3 +443,42 @@ select count(*) from trips where fare_amount < 0;
 1 row in set (0.05 sec)
 
 ```
+
+There should be 14 such trips returned. Again, these trips warrant further exploration. There may be a reasonable explanation for why the fares take on negative numbers. However, it's up to the data engineer to ensure there are no bugs in the data pipeline that would cause such a result.
+
+
+Finally, let's investigate the payment_type column.
+```SQL
+select
+  payment_type,
+  count(*)
+from
+  trips
+group by
+  payment_type;
+```
+
+
+
+
+The results of the query indicate that there are four different payment types, with:
+```SQL
++--------------+----------+
+| payment_type | count(*) |
++--------------+----------+
+| 1            |    13863 |
+| 2            |     6016 |
+| 3            |      113 |
+| 4            |       32 |
++--------------+----------+
+4 rows in set (0.06 sec)
+```
+Digging into the documentation, a payment type of 1 refers to credit card use, payment type of 2 is cash, and a payment type of 4 refers to a dispute. The figures make sense.
+
+Exit the 'mysql' interactive console
+
+```powershell
+exit
+```
+
+
